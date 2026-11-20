@@ -1,0 +1,31 @@
+/* CARTO floating pop-art eye background */
+body {
+  background: #07060b !important;
+  isolation: isolate;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -12%;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/carto-eye-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.22;
+  filter: saturate(1.1);
+  transform: translate3d(0, 0, 0) scale(1.04);
+  animation: cartoEyeFloat 22s ease-in-out infinite alternate;
+}
+
+@keyframes cartoEyeFloat {
+  0%   { transform: translate3d(-1.5%, -1%, 0) scale(1.04); background-position: 48% 45%; }
+  50%  { transform: translate3d(1.2%, 1%, 0) scale(1.09); background-position: 52% 52%; }
+  100% { transform: translate3d(-0.5%, 1.5%, 0) scale(1.06); background-position: 47% 56%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
